@@ -1,7 +1,6 @@
 #include "nya/nya.h" 
 #include "program/imgui_nvn.h"
 #include "nya/windows/intro.h" 
-#include "nya/windows/bar.h" 
 
 #include <nn/init.h> 
 
