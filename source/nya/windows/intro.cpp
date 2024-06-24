@@ -3,8 +3,8 @@
 
 namespace nya {
     namespace window { 
-        void intro() { 
-            if (nya::show_intro) { 
+        void show_demo() { 
+            if (nya::show_demo) { 
                 ImGui::Begin("Welcome", &nya::show_intro);
                 ImGui::SetWindowSize(ImVec2(500, 400), ImGuiCond_FirstUseEver); 
 
