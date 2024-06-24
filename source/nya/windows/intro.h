@@ -3,6 +3,6 @@
 
 namespace nya { 
     namespace window { 
-        void intro();
+        void demo_window();
     }
 }
