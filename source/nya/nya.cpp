@@ -6,11 +6,8 @@
 #include <nn/init.h> 
 
 namespace nya { 
-    //menu 
-    bool show_menu = false; 
-
     //windows 
-    bool show_intro = true; 
+    bool show_window = true; 
 
     //memory 
     nn::mem::StandardAllocator* Allocator = nullptr; 
@@ -18,7 +15,6 @@ namespace nya {
     //main loop 
     void nya_main() { 
         //windows 
-        window::bar();
-        window::intro(); 
+        window::demo_window(); 
     } 
 }
