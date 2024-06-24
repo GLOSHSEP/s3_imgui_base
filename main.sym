@@ -1,0 +1,2 @@
+_ZN2nn4init12GetAllocatorEv = __main_start + 0x009ab090; 
+_ZN2nn4init11s_AllocatorE = __main_start + 0x0750d458; 
