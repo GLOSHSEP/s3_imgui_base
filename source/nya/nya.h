@@ -3,11 +3,8 @@
 #include <nn/init.h> 
 
 namespace nya { 
-    //menu 
-    extern bool show_menu; 
-
     //windows 
-    extern bool show_intro; 
+    extern bool show_window; 
 
     //memory 
     extern nn::mem::StandardAllocator* Allocator; 
