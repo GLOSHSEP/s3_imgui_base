@@ -4,8 +4,8 @@
 namespace nya {
     namespace window { 
         void demo_window() { 
-            if (nya::show_demo) { 
-                ImGui::Begin("Welcome", &nya::show_intro);
+            if (nya::show_window) { 
+                ImGui::Begin("Welcome", &nya::show_window);
                 ImGui::SetWindowSize(ImVec2(500, 400), ImGuiCond_FirstUseEver); 
 
                 static bool showWindow = false; 
