@@ -184,9 +184,9 @@ CompiledData ImguiShaderCompiler::CompileShader(const char *shaderName) {
     NVNshaderStage stages[6];
 
     char vshPath[0x50] = {}; //"sd:/smo/shaders/sources/imgui_vsh.glsl";
-    createPath(vshPath, "sd:/nyaloader/ShaderData/Sources", shaderName, "_vsh.glsl");
+    createPath(vshPath, "sd:/sd/ShaderData/Sources", shaderName, "_vsh.glsl");
     char fshPath[0x50] = {}; //"sd:/smo/shaders/sources/imgui_fsh.glsl";
-    createPath(fshPath, "sd:/nyaloader/ShaderData/Sources", shaderName, "_fsh.glsl");
+    createPath(fshPath, "sd:/sd/ShaderData/Sources", shaderName, "_fsh.glsl");
 
 
     shaders[0] = GetShaderSource(vshPath);
