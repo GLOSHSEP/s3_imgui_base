@@ -100,7 +100,7 @@ CompiledData NOINLINE CreateShaderBinary(GLSLCoutput *compileData, const char *s
     if (outputFile) {
 
         char fullPath[0x40] = {};
-        createPath(fullPath, "sd:/smo/ShaderData", shaderName, ".bin");
+        createPath(fullPath, "sd:/meow/ShaderData", shaderName, ".bin");
 
         R_ABORT_UNLESS(nya::fs::writeFileToPath(binaryBuffer, binarySize, fullPath))
 
@@ -183,10 +183,10 @@ CompiledData ImguiShaderCompiler::CompileShader(const char *shaderName) {
     const char *shaders[6];
     NVNshaderStage stages[6];
 
-    char vshPath[0x50] = {}; //"sd:/smo/shaders/sources/imgui_vsh.glsl";
-    createPath(vshPath, "sd:/sd/ShaderData/Sources", shaderName, "_vsh.glsl");
-    char fshPath[0x50] = {}; //"sd:/smo/shaders/sources/imgui_fsh.glsl";
-    createPath(fshPath, "sd:/sd/ShaderData/Sources", shaderName, "_fsh.glsl");
+    char vshPath[0x50] = {}; //"sd:/meow/shaders/sources/imgui_vsh.glsl";
+    createPath(vshPath, "sd:/meow/ShaderData/Sources", shaderName, "_vsh.glsl");
+    char fshPath[0x50] = {}; //"sd:/meow/shaders/sources/imgui_fsh.glsl";
+    createPath(fshPath, "sd:/meow/ShaderData/Sources", shaderName, "_fsh.glsl");
 
 
     shaders[0] = GetShaderSource(vshPath);

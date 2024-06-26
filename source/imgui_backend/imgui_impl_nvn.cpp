@@ -71,7 +71,7 @@ namespace ImguiNvnBackend {
 
         } else {
             nya::fs::LoadData loadData = {
-                .path = "sd:/sd/ImGuiData/imgui.bin"
+                .path = "sd:/meow/ImGuiData/imgui.bin"
             };
 
             nya::fs::loadFileFromPath(loadData);
