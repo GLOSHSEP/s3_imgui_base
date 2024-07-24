@@ -147,12 +147,12 @@ bool nvnImGui::InitImGui() {
 
         IMGUI_CHECKVERSION();
 
-        ImGuiMemAllocFunc allocFunc = [](size_t size, void *user_data) { 
-            return nya::Allocator->Allocate(size);
+        ImGuiMemAllocFunc allocFunc = [](size_t size, void *user_data) {
+            return nn::init::GetAllocator()->Allocate(size);
         };
 
         ImGuiMemFreeFunc freeFunc = [](void *ptr, void *user_data) {
-            nya::Allocator->Free(ptr);
+            nn::init::GetAllocator()->Free(ptr);
         };
 
         ImGui::SetAllocatorFunctions(allocFunc, freeFunc, nullptr);

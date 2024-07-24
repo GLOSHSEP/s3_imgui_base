@@ -7,10 +7,6 @@
 namespace nya { 
     //windows 
     bool show_window = true; 
-
-    //memory 
-    nn::mem::StandardAllocator* Allocator = nullptr; 
-
     //main loop 
     void nya_main() { 
         //windows 

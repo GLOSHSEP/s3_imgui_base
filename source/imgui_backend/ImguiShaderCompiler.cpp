@@ -21,15 +21,15 @@ const char *shaderNames[] = {
 };
 
 extern "C" void *glslc_Alloc(size_t size, size_t alignment, void *user_data = nullptr) {
-    return nya::Allocator->Allocate(ALIGN_UP(size, alignment));
+    //return nya::Allocator->Allocate(ALIGN_UP(size, alignment));
 }
 
 extern "C" void glslc_Free(void *ptr, void *user_data = nullptr) {
-    nya::Allocator->Free(ptr);
+    //nya::Allocator->Free(ptr);
 }
 
 extern "C" void *glslc_Realloc(void *ptr, size_t size, void *user_data = nullptr) {
-    return nya::Allocator->Reallocate(ptr, size);
+    //return nya::Allocator->Reallocate(ptr, size);
 }
 
 void NOINLINE ReadCompiledShader(GLSLCoutput *compileData) {

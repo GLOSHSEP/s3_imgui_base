@@ -41,7 +41,7 @@ namespace nya {
             long size = 0;
             nn::fs::GetFileSize(&size, handle);
 
-            loadData.buffer = nya::Allocator->Allocate(size);
+            loadData.buffer = nn::init::GetAllocator()->Allocate(size);
             loadData.bufSize = size;
 
             EXL_ASSERT(loadData.buffer, "Failed to Allocate Buffer! File Size: %ld", size);

@@ -4,10 +4,7 @@
 
 namespace nya { 
     //windows 
-    extern bool show_window; 
-
-    //memory 
-    extern nn::mem::StandardAllocator* Allocator; 
+    extern bool show_window;  
 
     //main loop 
     void nya_main(); 
