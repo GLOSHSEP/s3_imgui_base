@@ -1,5 +1,6 @@
 #include "common.hpp"
 
+#include "nya.h"
 #include "program/setting.hpp"
 
 extern "C" {
@@ -24,6 +25,8 @@ extern "C" {
 
         fake_heap_start = __fake_heap;
         fake_heap_end   = __fake_heap + exl::setting::HeapSize;
+
+        nya::MainHeap = nn::lmem::CreateExpHeap(__fake_heap, exl::setting::HeapSize, 4);
     }
     
     #endif

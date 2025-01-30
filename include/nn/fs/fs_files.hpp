@@ -98,4 +98,6 @@ namespace nn::fs {
 
     Result DeleteFile(const char *path);
 
+    Result SetFileSize(FileHandle handle, long size);
+
 } // namespace nn::fs

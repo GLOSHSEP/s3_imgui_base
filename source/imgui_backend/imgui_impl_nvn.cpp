@@ -1,5 +1,4 @@
 #include "imgui_impl_nvn.hpp"
-#include <utilites.h> 
 #include "imgui_hid_mappings.h"
 #include "lib.hpp"
 #include <cmath>
@@ -9,6 +8,8 @@
 #include "nn/hid.h"
 #include "nn/pl.h"
 #include "MemoryPoolMaker.h"
+#include "utilites/fs_mgr.h"
+#include "utilites/input_mgr.h"
 
 #define UBOSIZE 0x1000
 
@@ -71,10 +72,10 @@ namespace ImguiNvnBackend {
 
         } else {
             nya::fs::LoadData loadData = {
-                .path = "sd:/meow/ImGuiData/imgui.bin"
+                .path = "sd:/nyaloader/shaders/imgui.bin"
             };
 
-            nya::fs::loadFileFromPath(loadData);
+            nya::fs::loadFileFromPath(loadData, 0x1000);
 
             bd->imguiShaderBinary.size = loadData.bufSize;
             bd->imguiShaderBinary.ptr = (u8*)loadData.buffer;

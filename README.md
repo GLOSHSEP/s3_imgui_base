@@ -1,8 +1,4 @@
-Put the meow folder at the root of your SD card
-
-Only works on 8.0.0 to make it work on other version change the offset Call_nngetalloc is installed to where every nn::init::GetAllocator is in your target version 
-
-Probably not online safe 
+Put the nyaloader folder at the root of your SD card
 
 Big thanks to https://github.com/CraftyBoss for the back end and input helper and fs helper code from the smo exlaunch bas repository 
 

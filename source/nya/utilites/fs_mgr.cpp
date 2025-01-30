@@ -1,7 +1,6 @@
-#include "fs_mgr.h"
-#include "diag/assert.hpp"
-#include "nn/init.h"
-#include "nya/nya.h"
+#include "fs_mgr.h" 
+#include "lib.hpp" 
+#include "nn/fs.h"  
 
 namespace nya { 
     namespace fs { 
@@ -30,23 +29,18 @@ namespace nya {
         }
 
         // make sure to free buffer after usage is done
-        void loadFileFromPath(LoadData &loadData) {
-
+        void loadFileFromPath(LoadData &loadData, size_t alignment) {
             nn::fs::FileHandle handle;
 
-            EXL_ASSERT(nya::fs::isFileExist(loadData.path), "Failed to Find File!\nPath: %s", loadData.path);
-
-            R_ABORT_UNLESS(nn::fs::OpenFile(&handle, loadData.path, nn::fs::OpenMode_Read))
+            nn::fs::OpenFile(&handle, loadData.path, nn::fs::OpenMode_Read); 
 
             long size = 0;
             nn::fs::GetFileSize(&size, handle);
 
-            loadData.buffer = nya::Allocator->Allocate(size);
+            loadData.buffer = aligned_alloc(alignment, size); 
             loadData.bufSize = size;
 
-            EXL_ASSERT(loadData.buffer, "Failed to Allocate Buffer! File Size: %ld", size);
-
-            R_ABORT_UNLESS(nn::fs::ReadFile(handle, 0, loadData.buffer, size))
+            nn::fs::ReadFile(handle, 0, loadData.buffer, size); 
 
             nn::fs::CloseFile(handle);
         }
@@ -68,8 +62,7 @@ namespace nya {
 
         bool isFileExist(const char *path) {
             nn::fs::DirectoryEntryType type;
-            nn::Result result = nn::fs::GetEntryType(&type, path);
-
+            nn::fs::GetEntryType(&type, path); 
             return type == nn::fs::DirectoryEntryType_File;
         } 
     }

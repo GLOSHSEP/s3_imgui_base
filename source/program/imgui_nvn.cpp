@@ -2,10 +2,9 @@
 #include "imgui_nvn.h"
 #include "imgui_backend/imgui_impl_nvn.hpp"
 #include "init.h"
-#include "lib.hpp" 
-#include <utilites.h> 
-#include "nvn_CppFuncPtrImpl.h" 
-#include <nya.h> 
+#include "lib.hpp"
+#include "nvn_CppFuncPtrImpl.h"
+#include "utilites/input_mgr.h" 
 
 nvn::Device *nvnDevice;
 nvn::Queue *nvnQueue;
@@ -147,13 +146,11 @@ bool nvnImGui::InitImGui() {
 
         IMGUI_CHECKVERSION();
 
-        ImGuiMemAllocFunc allocFunc = [](size_t size, void *user_data) { 
-            return nya::Allocator->Allocate(size);
+        ImGuiMemAllocFunc allocFunc = [](size_t size, void* user_data) {
+            return aligned_alloc(0x1000, size);
         };
 
-        ImGuiMemFreeFunc freeFunc = [](void *ptr, void *user_data) {
-            nya::Allocator->Free(ptr);
-        };
+        ImGuiMemFreeFunc freeFunc = [](void* ptr, void* user_data) { free(ptr); };
 
         ImGui::SetAllocatorFunctions(allocFunc, freeFunc, nullptr);
 
@@ -174,10 +171,9 @@ bool nvnImGui::InitImGui() {
 
         nya::hid::initKBM();
 
-        nya::hid::setPort(0); // set input helpers default port to zero 
+        nya::hid::setPort(0);
 
         return true;
-
     } else { 
         return false;
     }

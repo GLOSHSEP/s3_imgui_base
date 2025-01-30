@@ -1,15 +1,16 @@
-#pragma once
+#ifndef CLANGD_SUCKS
+#pragma once 
 
-/* Require an externally linked heap implementation to be provided if fake heap isn't used. */
-#ifndef EXL_USE_FAKEHEAP
+#include <cstddef> 
 
-#include <cstddef>
+extern "C" { 
+    //main heap 
+    void* malloc(size_t size); 
+    void free(void* ptr); 
+    void* aligned_alloc(size_t alignment, size_t size); 
+}; 
 
-extern "C" {
-
-extern void *malloc(size_t size);
-extern void *aligned_alloc( size_t alignment, size_t size );
-
-};
-
+//main heap 
+void* operator new(size_t size); 
+void operator delete(void* ptr) noexcept;
 #endif

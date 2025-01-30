@@ -1,13 +1,12 @@
 
 #include "ImguiShaderCompiler.h"
 #include "fs.h" 
-#include <utilites.h> 
 #include "init.h"
 #include "glslc/glslc.h"
 #include "result.hpp"
 #include <cstring>
-#include <cstdio> 
-#include <nya.h> 
+#include <cstdio>
+#include "utilites/fs_mgr.h"
 
 // list of every shader type nvn supports/glslc can compile (in the order of NVNshaderStage)
 
@@ -21,15 +20,15 @@ const char *shaderNames[] = {
 };
 
 extern "C" void *glslc_Alloc(size_t size, size_t alignment, void *user_data = nullptr) {
-    return nya::Allocator->Allocate(ALIGN_UP(size, alignment));
+    return 0;//nya::Allocator->Allocate(ALIGN_UP(size, alignment));
 }
 
 extern "C" void glslc_Free(void *ptr, void *user_data = nullptr) {
-    nya::Allocator->Free(ptr);
+    //nya::Allocator->Free(ptr);
 }
 
 extern "C" void *glslc_Realloc(void *ptr, size_t size, void *user_data = nullptr) {
-    return nya::Allocator->Reallocate(ptr, size);
+    return 0;//nya::Allocator->Reallocate(ptr, size);
 }
 
 void NOINLINE ReadCompiledShader(GLSLCoutput *compileData) {
